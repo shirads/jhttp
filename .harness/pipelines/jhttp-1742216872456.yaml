@@ -6,9 +6,9 @@ pipeline:
   properties:
     ci:
       codebase:
-        build: <+input>
         connectorRef: Shirad_Gith
-        repoName: jhttp
+        build: <+input>
+        sparseCheckout: []
   stages:
     - stage:
         identifier: build
