@@ -7,7 +7,6 @@ pipeline:
     ci:
       codebase:
         connectorRef: Shirad_Gith
-        repoName: jhttp
         build: <+input>
         sparseCheckout: []
   stages:
