@@ -6,9 +6,9 @@ pipeline:
   properties:
     ci:
       codebase:
-        build: <+input>
         connectorRef: account.harness_github_connector
-        repoName: jhttp
+        build: <+input>
+        sparseCheckout: []
   stages:
     - stage:
         identifier: build
