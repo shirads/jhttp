@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_shirads_jhttp_1742223513636-pr-trigger-input-set
+  identifier: Build_shirads_jhttp_1742223513636prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_shirads_jhttp_1742223513636
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
