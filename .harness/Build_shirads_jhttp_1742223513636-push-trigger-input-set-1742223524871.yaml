@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_shirads_jhttp_1742223513636-push-trigger-input-set
+  identifier: Build_shirads_jhttp_1742223513636pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_shirads_jhttp_1742223513636
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
