@@ -28,17 +28,6 @@ pipeline:
                     echo "Welcome to Harness CI"
                     mvn -B package --file pom.xml
                   type: Run
-              - step:
-                  identifier: dockerbuild
-                  name: docker_build
-                  spec:
-                    caching: true
-                    connectorRef: <+input>
-                    repo: jhttp
-                    tags:
-                      - latest
-                  timeout: ""
-                  type: BuildAndPushDockerRegistry
           infrastructure:
             type: KubernetesDirect
             spec:
