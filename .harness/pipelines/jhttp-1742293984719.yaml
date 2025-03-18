@@ -44,3 +44,5 @@ pipeline:
                 type: Ignore
         delegateSelectors:
           - kubernetes-delegate
+        strategy:
+          parallelism: 1
