@@ -19,12 +19,14 @@ pipeline:
           cloneCodebase: true
           execution:
             steps:
-              - step:
-                  identifier: echo
-                  name: echo
-                  spec:
-                    command: echo hello world
-                  timeout: ""
+              - type: Run
+                identifier: build_java_app
+                name: Build Java App
+                spec:
+                  shell: Sh
+                  command: |-
+                    echo "Welcome to Harness CI"
+                    mvn -B package --file pom.xml
                   type: Run
               - step:
                   identifier: dockerbuild
@@ -32,15 +34,25 @@ pipeline:
                   spec:
                     caching: true
                     connectorRef: <+input>
-                    repo: hello/world
+                    repo: jhttp
                     tags:
                       - latest
                   timeout: ""
                   type: BuildAndPushDockerRegistry
-          platform:
-            arch: Amd64
-            os: Linux
-          runtime:
-            spec: {}
-            type: Docker
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: gke
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
         type: CI
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: Ignore
+        delegateSelectors:
+          - kubernetes-delegate
