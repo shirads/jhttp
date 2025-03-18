@@ -42,7 +42,3 @@ pipeline:
                 - AllErrors
               action:
                 type: Ignore
-        delegateSelectors:
-          - kubernetes-delegate
-        when:
-          pipelineStatus: All
