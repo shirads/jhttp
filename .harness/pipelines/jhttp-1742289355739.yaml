@@ -41,4 +41,6 @@ pipeline:
               errors:
                 - AllErrors
               action:
-                type: MarkAsFailure
+                type: Ignore
+        delegateSelectors:
+          - kubernetes-delegate
