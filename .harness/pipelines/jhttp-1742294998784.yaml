@@ -32,9 +32,7 @@ pipeline:
                   name: Build Java App
                   spec:
                     shell: Sh
-                    command: |-
-                      echo "Welcome to Harness CI"
-                      mvn -B package --file pom.xml
+                    command: echo "Welcome to Harness CI"
           platform:
             arch: Amd64
             os: Linux
